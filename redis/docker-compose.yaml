@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  redis:
+    container_name: redis
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "/redis.conf"]
+    volumes:
+      - type: volume
+        source: redis-data
+        target: /redis.conf
+volumes:
+  redis-data:
