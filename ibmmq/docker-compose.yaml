@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  mq:
+    container_name: mq
+    image: ibmcom/mq:latest
+    ports:
+      - "1414:1414"
+      - "9443:9443"
+    environment:
+      LICENSE: accept
+      MQ_QMGR_NAME: mq1
+      MQ_APP_PASSWORD: password123
+    volumes:
+      - type: volume
+        source: qm1data
+        target: /mnt/mqm
+    command: ["run"]
+volumes:
+  qm1data:
