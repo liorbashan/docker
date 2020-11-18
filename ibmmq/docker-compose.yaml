@@ -17,3 +17,7 @@ services:
     command: ["run"]
 volumes:
   qm1data:
+
+# https://developer.ibm.com/tutorials/mq-connect-app-queue-manager-containers/#step-2-get-the-mq-in-docker-image
+# https://developer.ibm.com/components/ibm-mq/articles/mq-downloads/ 
+# https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.0.0/com.ibm.mq.dev.doc/q029500_.html
