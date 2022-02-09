@@ -39,6 +39,19 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       ES_JAVA_OPTS: "-Xms512m -Xmx3000m"
       JMX_PORT: 9997
-      KAFKA_JMX_OPTS: -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=kafka -Dcom.sun.management.jmxremote.rmi.port=9997
+      KAFKA_JMX_OPTS: -Dcom.sun.management.jmxremote
+        -Dcom.sun.management.jmxremote.authenticate=false
+        -Dcom.sun.management.jmxremote.ssl=false
+        -Djava.rmi.server.hostname=kafka
+        -Dcom.sun.management.jmxremote.rmi.port=9997
     depends_on:
       - zookeeper
+
+  kafka-cli:
+    container_name: kafka-cli
+    image: nginx:alpine
+    command: [ "/bin/sh", "-c", "while true; do sleep 10; done" ]
+  # kafka-cli:
+  #   container_name: kafka-cli
+  #   image: conitasgmbh/kafka-cli
+  #   command: [ "/bin/sh", "-c", "while true; do sleep 10; done" ]
