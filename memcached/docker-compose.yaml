@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  memcached:
+    image: memcached:latest
+    container_name: memcached
+    ports:
+      - "11211:11211"
+
+  memcached-ui:
+    image: rlancer/memcached-ui:latest
+    container_name: memcached-ui
+    environment:
+      MEMCACHED_HOST: memcached
+      MEMCACHED_PORT: 11211
+    ports:
+      - "8080:8080"
+    depends_on:
+      - memcached
